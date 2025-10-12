@@ -1,0 +1,201 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.95]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\hypersetup{colorlinks,breaklinks,allcolors=black}
+
+%for social icons
+\usepackage{fontawesome5}
+
+% job listing environments
+\newenvironment{joblong}[4]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[0pt]
+    \textit{#3} & \hfill &  \textit{#4} \\[-1pt]
+    \end{tabularx}
+    \vspace{-0.3em}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[after=\strut, leftmargin=1em, label=•]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Yunus Karatas} \\[7.5pt]
+\href{https://qkloun.github.io}{\raisebox{-0.05\height} \ qkloun.github.io} \ $|$ \ 
+\href{mailto:karatasyunus@icloud.com}{\raisebox{-0.05\height} \ karatasyunus@icloud.com} \ $|$ \ 
+\href{https://maps.app.goo.gl/CFZSxWmH66GiFRbd9}{\raisebox{-0.05\height} \ Pembroke Pines, Fl} \ $|$
+\href{tel:+17867742700}{\raisebox{-0.05\height} \ 786-774-2700} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Education}	
+{Florida Atlantic University} \hfill {Aug 2022 - May 2027} \\
+\textbf{Computer Science (BS) \& minor in Data Science} \hfill\textit{Boca Raton, FL}
+%Technical Skills
+\section{Skills}
+
+\textbf{Technical Skills:} Python, C++, SQL, HTML, JS, CSS, LaTeX, Machine Learning\\
+\textbf{Platforms and Tools:} Github, TensorFlow, Tailwind CSS, OpenCV\\
+\textbf{Languages:} English and Turkish
+
+%Experience
+\section{Experience}
+
+\begin{joblong}{Set Kitchens}{May 2023 - Present}{Sales Associate}{Pembroke Pines, FL}
+\item Delivered personalized service to \textbf{50+} customers weekly, resulting in a \textbf{15\% increase} in customer satisfaction
+\item Assist with administrative tasks including \textbf{data entry} and \textbf{record keeping}
+\item Process sales transactions and handle customer inquiries
+\end{joblong}
+
+\begin{joblong}{OpenBots}{Jun 2023 - Jul 2023}{Shadow}{Edison, NJ}
+\item Shadowed development team working on \textbf{automation} solutions using \textbf{C++} and RPA frameworks
+\item Gained exposure to software development lifecycle and \textbf{Agile} methodology
+\item Observed code review processes and Git version control workflows
+\end{joblong}
+  
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Plantus AI} - Python, TensorFlow, Flask, OpenCV & \hfill {{Jun - Aug 2025}}\\[1pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{minipage}[t]{\linewidth}
+        \begin{itemize}
+            \item Trained CNN on \textbf{10,000+} labeled plant images achieving \textbf{89\%} test accuracy across 12 disease classes
+            \item Implemented data augmentation pipeline with \textbf{OpenCV} for image preprocessing and normalization
+            \item Deployed \textbf{Flask REST API} with real-time prediction capabilities and confidence scoring
+        \end{itemize}
+    \end{minipage}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Personal Portfolio Website} - HTML, CSS, JavaScript, Tailwind CSS & \hfill {Mar - May 2025}\\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{minipage}[t]{\linewidth}
+        \begin{itemize}
+            \item Built mobile-first layout with \textbf{Tailwind's} responsive utilities ensuring \textbf{cross-browser} compatibility
+            \item Designed \textbf{glassmorphism UI} with backdrop filters and smooth scroll navigation
+            \item Responsive portfolio showcasing computer science projects and \textbf{technical skills}
+        \end{itemize}
+    \end{minipage}
+} \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Data Analysis Projects} - Python, ggplot2, pandas, tidyverse, Jupyter Notebooks & \hfill {Oct - Dec 2024 } \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{minipage}[t]{\linewidth}
+        \begin{itemize}
+            \item Analyzed NYC flight data identifying \textbf{40\%} higher cancellation rates during winter months
+            \item Explored correlations between species characteristics in Palmer Penguins dataset
+            \item Visualized automotive efficiency trends across vehicle classes and years
+        \end{itemize}
+    \end{minipage}
+} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	Involvements
+%----------------------------------------------------------------------------------------
+\section{Involvements}
+\begin{joblong}{SHPE (Society of Hispanic Professional Engineers)}{Mar 2024 - Present}{Member}{}
+\item Attended \textbf{15+} professional development workshops focused on interview preparation and career advancement
+\item Participated in networking events connecting with industry professionals and alumni
+\item Developed teamwork skills through participation in committee work and volunteer opportunities
+\end{joblong}
+ 
+ \begin{joblong}{IEEE (Institute of Electrical and Electronics Engineers)}{Mar 2024 - Present}{Member}{}
+\item Participated in technical discussions exploring current trends in engineering and CS
+\item Building competition robot with \textbf{integrated sensors and motor controllers} for autonomous navigation
+\end{joblong}
+
+ \section{Certifications} 
+\textbf{SQL for Data Analysis} \hfill {Aug 2025} \\
+\textbf{Problem Solving C++} \hfill {April 2024}
+
+\end{document}
