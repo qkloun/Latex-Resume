@@ -4,6 +4,21 @@
 
 % article class because we want to fully customize the page and not use a cv template
 \documentclass[a4paper,12pt]{article}
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES
@@ -28,6 +43,7 @@
 
 %to prevent spillover of tabular into next pages
 \usepackage{supertabular}
+\usepackage{tabularx}
 \newlength{\fullcollw}
 \setlength{\fullcollw}{0.47\textwidth}
 
@@ -41,14 +57,32 @@
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{3pt}{3pt}
 
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
 %Setup hyperref package, and colours for links
 \usepackage[unicode, draft=false]{hyperref}
 \hypersetup{colorlinks,breaklinks,allcolors=black}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
 
 %for social icons
 \usepackage{fontawesome5}
 
+%debug page outer frames
+%\usepackage{showframe}
+
+
 % job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
 \newenvironment{joblong}[4]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
@@ -64,6 +98,8 @@
     \end{minipage}    
     }
 
+
+
 %----------------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
@@ -75,6 +111,12 @@
 %----------------------------------------------------------------------------------------
 %	TITLE
 %----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
 
 \begin{tabularx}{\linewidth}{@{} C @{}}
 \Huge{Yunus Karatas} \\[7.5pt]
@@ -96,7 +138,7 @@
 \section{Skills}
 
 \textbf{Technical Skills:} Python, C++, SQL, HTML, JS, CSS, LaTeX, Machine Learning\\
-\textbf{Platforms and Tools:} Github, TensorFlow, Tailwind CSS, OpenCV\\
+\textbf{Platforms and Tools:} Github, TensorFlow, Tailwind CSS, OpenCV, Excel, PowerBI\\
 \textbf{Languages:} English and Turkish
 
 %Experience
@@ -104,7 +146,7 @@
 
 \begin{joblong}{Set Kitchens}{May 2023 - Present}{Sales Associate}{Pembroke Pines, FL}
 \item Delivered personalized service to \textbf{50+} customers weekly, resulting in a \textbf{15\% increase} in customer satisfaction
-\item Assist with administrative tasks including \textbf{data entry} and \textbf{record keeping}
+\item Assist with administrative tasks including \textbf{data entry} and \textbf{record keeping in excel}
 \item Process sales transactions and handle customer inquiries
 \end{joblong}
 
@@ -171,8 +213,10 @@
 \item Building competition robot with \textbf{integrated sensors and motor controllers} for autonomous navigation
 \end{joblong}
 
+
  \section{Certifications} 
 \textbf{SQL for Data Analysis} \hfill {Aug 2025} \\
 \textbf{Problem Solving C++} \hfill {April 2024}
 
 \end{document}
+
